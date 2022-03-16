@@ -37,4 +37,5 @@ if __name__ == "__main__":
         },
     ]
 
-    print(evaluate_test_cases(rotate, tests, error_only=True))
+    print(rotation_temp.__doc__)
+    print(evaluate_test_cases(rotation_temp, tests, error_only=True))
