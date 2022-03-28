@@ -18,6 +18,7 @@ def rotation_temp(nums: List[int], d: int) -> List[int]:
     # del nums[:d]
     # return nums + tmp
 
+    d %= len(nums)
     tmp = [0] * len(nums)
     for index, value in enumerate(nums):
         idx = (index + d) % len(nums)
@@ -34,7 +35,7 @@ def rotation(nums: List[int], d: int) -> List[int]:
     Time Complexity: O(n)
     Auxiliary Space: O(1)
     """
-    d = d % len(nums)
+    d %= len(nums)
     l, r = 0, len(nums) - 1
     while l < r:
         nums[l], nums[r] = nums[r], nums[l]
