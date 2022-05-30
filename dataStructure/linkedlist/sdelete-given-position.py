@@ -1,5 +1,5 @@
 """
-    Single Linked list: Length
+    Single Linked list: Delete node from given position.
 """
 class Node:
     def __init__(self, data):
@@ -22,19 +22,35 @@ class LinkedList:
     def __len__(self) -> int:
         count = 0
         tmp = self.__head
-
         while tmp:
             count += 1
             tmp = tmp.next
-
         return count
+    
+    def deleteNode(self, position: int) -> None:
+        if self.__head is None:
+            return
 
-    def getCount(self, head):
-        if head == None:
-            return 0
-        return 1 + self.getCount(head.next)
+        # if given position is head
+        if position == 0:
+            self.__head = self.__head.next
+            return
+        
+        index = 0
+        current = self.__head
+        prev = self.__head
+        tmp = self.__head
+        while current is not None:
+            if index == position:
+                tmp = current.next
+                break
+            prev = current
+            current = current.next
+            index += 1
+        prev.next = tmp
 
-    def printList(self):
+
+    def printList(self) -> None:
         tmp = self.__head
         while tmp:
             print(tmp.data, end=" ")
@@ -49,6 +65,9 @@ if __name__ == "__main__":
     llist.push("C")
     llist.push("B")
     llist.push("A")
-    llist.printList()
     print("Length of Single Linked List (iter): ", len(llist))
-    print("Length of Single Linked List (recursive): ", llist.getCount(llist.head))
+    print("Before Delete: ", end="")
+    llist.printList()
+    llist.deleteNode(2)
+    print("After Delete: ", end="")
+    llist.printList()
