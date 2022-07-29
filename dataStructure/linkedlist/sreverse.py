@@ -75,8 +75,9 @@ class LinkedList:
         llstr = ""
 
         while tmp:
-            llstr += str(tmp.data) + " "
+            llstr += str(tmp.data) + " -> "
             tmp = tmp.next
+        llstr += "None"
         return llstr
 
 
@@ -88,9 +89,9 @@ if __name__ == "__main__":
     llist.push("B")
     llist.push("A")
     print("Length of Single Linked List (iter): ", len(llist))
-    print("Before reverse: ", end="")
+    print("Before reverse: \t", end="")
     print(llist)
-    # llist.head = llist.reverse_rec(llist.head)
-    llist.reverseUsingStack()
-    print("After reverse: ", end="")
+    llist.head = llist.reverse_rec(llist.head)
+    # llist.reverseUsingStack()
+    print("After reverse: \t\t", end="")
     print(llist)
